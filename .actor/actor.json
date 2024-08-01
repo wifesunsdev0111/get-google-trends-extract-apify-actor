@@ -1,0 +1,67 @@
+{
+	"actorSpecification": 1,
+	"name": "realtime-trends-extractor",
+	"title": "Getting started with Python and Selenium",
+	"description": "Scrapes trends from googl.com using Selenium.",
+	"version": "0.0",
+	"meta": {
+		"templateId": "python-selenium"
+	},
+	"input": "./input_schema.json",
+	"dockerfile": "./Dockerfile",
+	"storages": {
+		"dataset": {
+			"actorSpecification": 1,
+			"title": "URLs and their titles",
+			"views": {
+				"titles": {
+					"title": "Companies Contact Information",
+					"transformation": {
+						"fields": [
+							"id",
+							"title",
+							"link",
+							"queries",
+							"entity_link",
+							"articles",
+							"image"
+						]
+					},
+					"display": {
+						"component": "table",
+						"properties": {
+							"id": {
+								"label": "id",
+								"format": "text"
+							},
+							"title": {
+								"label": "title",
+								"format": "text"
+							},
+							"link": {
+								"label": "link",
+								"format": "text"
+							},
+							"queries": {
+								"label": "queries",
+								"format": "text"
+							},
+							"entity_link": {
+								"label": "entity link",
+								"format": "array"
+							},
+							"articles": {
+								"label": "articles",
+								"format": "array"
+							},
+							"image": {
+								"label": "image",
+								"format": "object"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
