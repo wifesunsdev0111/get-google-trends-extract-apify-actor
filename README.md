@@ -1,24 +1,28 @@
-## Selenium & Chrome template
+## Google Trending Now Scraper using Selenium & Requests & Proxies & ThreadPoolExecutor & Chrome 
 
-A template example built with Selenium and a headless Chrome browser to scrape a website and save the results to storage. The URL of the web page is passed in via input, which is defined by the [input schema](https://docs.apify.com/platform/actors/development/input-schema). The template uses the [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) to load and process the page. Enqueued URLs are stored in the default [request queue](https://docs.apify.com/sdk/python/reference/class/RequestQueue). The data are then stored in the default [dataset](https://docs.apify.com/platform/storage/dataset) where you can easily access them.
+Google Trending Scraper built with Selenium, Requests, Proxies, ThreadPoolExecutor and a headless Chrome browser to scrape https://trends.google.com/ website and save the results to storage. All the query params of the Scraper is passed in via input, which is defined by the [input schema](https://docs.apify.com/platform/actors/development/input-schema). This actor uses the [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) to load and process the page. The data are then stored in the default [dataset](https://docs.apify.com/platform/storage/dataset) where you can easily access them.
 
 ## Included features
 
 - **[Apify SDK](https://docs.apify.com/sdk/python/)** for Python - a toolkit for building Apify [Actors](https://apify.com/actors) and scrapers in Python
 - **[Input schema](https://docs.apify.com/platform/actors/development/input-schema)** - define and easily validate a schema for your Actor's input
-- **[Request queue](https://docs.apify.com/sdk/python/docs/concepts/storages#working-with-request-queues)** - queues into which you can put the URLs you want to scrape
 - **[Dataset](https://docs.apify.com/sdk/python/docs/concepts/storages#working-with-datasets)** - store structured data where each object stored has the same attributes
 - **[Selenium](https://pypi.org/project/selenium/)** - a browser automation library
+- **[Requests]** - http/https request and response library
+- **[Proxies]** - Apify Datacenter proxy to bypass IP blocking
+- **[ThreadPoolExecutor]** - Python library to improve the execution speed of scraper
 
 ## How it works
 
-This code is a Python script that uses Selenium to scrape web pages and extract data from them. Here's a brief overview of how it works:
+This code is a Python script that uses Selenium, Requests, Proxies and ThreadPoolExecutor to scrape  https://trends.google.com/ and extract data from them. Here's a brief overview of how it works:
 
-- The script reads the input data from the Actor instance, which is expected to contain a `start_urls` key with a list of URLs to scrape and a `max_depth` key with the maximum depth of nested links to follow.
-- The script enqueues the starting URLs in the default request queue and sets their depth to 1.
-- The script processes the requests in the queue one by one, fetching the URL using requests and parsing it using Selenium.
-- If the depth of the current request is less than the maximum depth, the script looks for nested links in the page and enqueues their targets in the request queue with an incremented depth.
-- The script extracts the desired data from the page (in this case, titles of each page) and pushes them to the default dataset using the `push_data` method of the Actor instance.
+- The script reads the input data from the Actor instance, which is expected to contain a `country` key with a list of locations to scrape, a `sort` key with a list of sort data to scrap, a `status` key with a list of trend status to scrap, `logger` key with the value that determines whether the logger outputs, a `max_items` key with the maximum number of data to scrap.
+- The script creates a main request URL with the given input values ​​as parameters.
+- The script uses seleniumwire webdriver to open a Chrome browser with the main URL, then parses the HTML elements to extract the trend's title, search volume, started, status, and articles.
+- The script uses a URL with the main parameters of the trend's title and `country` input parameter to make an https post request to get the request parameters for the topics rising and topics top data of the explore page of https://trends.google.com/.
+- The script gets all the explore topics rising and explore topics top data corresponding to the given trend using https get request based on the obtained input parameters.
+- The script uses Apify Datacenter Proxy to bypass IP blocking and uses ThreadPoolExecutor to increase the execution speed.
+- The script extracts the desired data from the page (title, search volume, started, status, articles, explore topics rising, explore topics top) and pushes them to the default dataset using the `push_data` method of the Actor instance.
 - The script catches any exceptions that occur during the [web scraping](https://apify.com/web-scraping) process and logs an error message using the `Actor.log.exception` method.
 
 ## Resources

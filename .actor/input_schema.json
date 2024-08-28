@@ -3,22 +3,99 @@
     "type": "object",
     "schemaVersion": 1,
     "properties": {
-        "start_urls": {
-            "title": "Start URLs",
-            "type": "array",
-            "description": "URLs to start with",
-            "prefill": [
-                { "url": "https://apify.com" }
-            ],
-            "editor": "requestListSources"
+        "country" : {
+            "title": "Country",
+            "type": "string",
+            "description": "Select your country",
+            "editor": "select",
+            "default": "US",
+            "enum": ["AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BY", "BE",
+"BZ", "BJ", "BM", "BT", "BO", "BA", "BW", "BV", "BR", "IO", "VG", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "BQ", "KY",
+ "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "CI", "HR", "CU", "CW", "CY", "CZ", "DK", "DJ", "DM",
+ "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "SZ", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH",
+ "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE",
+ "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "XK", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT",
+ "LU", "MO", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ",
+ "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "KP", "MK", "MP", "NO", "OM", "PK", "PW", "PS", "PA",
+ "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RE", "RO", "RU", "RW", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG",
+ "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "KR", "SS", "ES", "LK", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "SD", "SR", "SJ",
+ "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US",
+ "UY", "UM", "VI", "UZ", "VU", "VA", "VE", "VN", "WF", "EH", "YE", "ZM", "ZW"],
+            "enumTitles": ["Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica",
+ "Antigua & Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh",
+ "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Bouvet Island",
+ "Brazil", "British Indian Ocean Territory", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi","Cambodia",
+ "Cameroon", "Canada", "Cape Verde", "Caribbean Netherlands", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China",
+ "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo - Brazzaville", "Congo - Kinshasa", "Cook Islands",
+ "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Curaçao", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+ "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Falkland Islands (Islas Malvinas)",
+ "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia",
+ "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea",
+ "Guinea-Bissau", "Guyana", "Haiti", "Heard & McDonald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia",
+ "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+ "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+ "Macao", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte",
+ "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia",
+ "Nauru", "Nepal", "Netherlands", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "North Korea",
+ "North Macedonia", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay",
+ "Peru", "Philippines", "Pitcairn Islands", "Poland", "Portugal", "Puerto Rico", "Qatar", "Réunion", "Romania", "Russia", "Rwanda", "Samoa",
+ "San Marino", " São Tomé and Príncipe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Sint Maarten",
+ "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia & South Sandwich Islands", "South Korea", "South Sudan",
+ "Spain", "Sri Lanka", "Saint Barthélemy", "St Helena", "St Kitts & Nevis", "St Lucia", "St Martin", "St Pierre & Miquelon", "St Vincent & the Grenadines",
+ "Sudan", "Suriname", "Svalbard & Jan Mayen", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste",
+ "Togo", "Tokelau", "Tonga", "Trinidad & Tobago", "Tunisia", "Türkiye", "Turkmenistan", "Turks & Caicos Islands", "Tuvalu", "Uganda",
+ "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "US Outlying Islands", "US Virgin Islands", "Uzbekistan",
+ "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Wallis & Futuna", "Western Sahara","Yemen", "Zambia", "Zimbabwe"]
         },
-        "max_depth": {
-            "title": "Maximum depth",
+        "sort" : {
+            "title": "Sort",
+            "type": "string",
+            "description": "Select sort type",
+            "editor": "select",
+            "default": "",
+            "enum": ["", "title", "search-volume", "recency"],
+            "enumTitles": ["Relevance", "Title", "Search Volume", "Recency"]
+        },
+        "status": {
+            "title": "Status",
+            "type": "string",
+            "description": "Select status",
+            "editor": "select",
+            "default": "",
+            "enum": ["", "active"],
+            "enumTitles": ["All", "Active"]
+        },
+        "logger" : {
+            "title": "Logger",
+            "type": "string",
+            "description": "Select Logger Status",
+            "editor": "select",
+            "default": "regular",
+            "enum": ["verbose", "regular"],
+            "enumTitles": ["Verbose", "Regular"]
+        },
+        "max_items" : {
+            "title": "Max items",
             "type": "integer",
-            "description": "Depth to which to scrape to",
-            "default": 1
+            "description": "Enter the maximum number of items"
+        },
+        "language": {
+            "title": "Language",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Enter the trending language",
+            "default": "en-US"
+        },
+        "use_proxies" : {
+            "title": "Use Proxies",
+            "type": "string",
+            "description": "Select whether to use proxies",
+            "editor": "select",
+            "default": "yes",
+            "enum": ["yes", "no"],
+            "enumTitles": ["Yes", "No"]
         }
         
     },
-    "required": ["start_urls"]
+    "required": ["country", "sort", "status", "logger", "max_items", "language", "use_proxies"]
 }

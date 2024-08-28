@@ -18,45 +18,55 @@
 					"title": "Companies Contact Information",
 					"transformation": {
 						"fields": [
-							"id",
 							"title",
-							"link",
+							"search_volume",
+							"search_volume_delta",
+							"started",
+							"status",
 							"queries",
-							"entity_link",
 							"articles",
-							"image"
+							"explore_topics_rising",
+							"explore_topics_top"
 						]
 					},
 					"display": {
 						"component": "table",
 						"properties": {
-							"id": {
-								"label": "id",
-								"format": "text"
-							},
 							"title": {
 								"label": "title",
 								"format": "text"
 							},
-							"link": {
-								"label": "link",
+							"search_volume": {
+								"label": "Search volume",
+								"format": "text"
+							},
+							"search_volume_delta": {
+								"label": "Search volume delta",
+								"format": "text"
+							},
+							"started": {
+								"label": "started",
+								"format": "text"
+							},
+							"status": {
+								"label": "status",
 								"format": "text"
 							},
 							"queries": {
 								"label": "queries",
-								"format": "text"
-							},
-							"entity_link": {
-								"label": "entity link",
 								"format": "array"
 							},
 							"articles": {
 								"label": "articles",
 								"format": "array"
 							},
-							"image": {
-								"label": "image",
-								"format": "object"
+							"explore_topics_rising": {
+								"label": "Explore Topics rising",
+								"format": "array"
+							},
+							"explore_topics_top": {
+								"label": "Explore Topics top",
+								"format": "array"
 							}
 						}
 					}
